@@ -5,9 +5,13 @@
 </ion-header>
 
 <ion-content padding>
+
+  <div class="center">
   <div class="camera"></div>
 
-  <input type="file" *ngIf="!imageURL" (change)="fileChanged($event)" />
+  <input type="file" *ngIf="!imageURL" (change)="fileChanged($event)" class="filebtn" #fileButton/>
+
+  <ion-button shape="round" color="primary" (click)="uploadFile()" *ngIf="!imageURL" fill="outline">Dosya Yükle</ion-button>
   
   <ion-card *ngIf="imageURL">
     <img src="https://ucarecdn.com/{{ imageURL }}/" />
@@ -16,6 +20,5 @@
       <ion-button shape="round" color="primary" (click)="createPost()">Gönder</ion-button>
     </ion-card-content>
   </ion-card>
-
-  
+</div>
 </ion-content>
