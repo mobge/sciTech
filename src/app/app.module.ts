@@ -15,7 +15,7 @@ import { HttpModule } from '@angular/http'
 import { UserService } from './user.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
-//import { ShareModule } from './share.module';
+import { ShareModule } from './share.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +28,7 @@ import { AuthService } from './auth.service';
 	  AngularFireAuthModule,
 	  AngularFirestoreModule,
 	  HttpModule,
-	  //ShareModule
+	  ShareModule
 	],
   providers: [
     StatusBar,
