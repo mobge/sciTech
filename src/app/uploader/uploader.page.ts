@@ -26,10 +26,13 @@ export class UploaderPage implements OnInit {
     const desc=this.desc
 
     this.afstore.doc(`users/${this.user.getUID()}`).update({
-      posts: firestore.FieldValue.arrayUnion({
-        image,
-        desc,
-      })
+      posts: firestore.FieldValue.arrayUnion(image) 
+    })
+
+    this.afstore.doc(`posts/${image}`).set({
+      desc,
+      author: this.user.getUsername(),
+      likes: []
     })
   }
 
