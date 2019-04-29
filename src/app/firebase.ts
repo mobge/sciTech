@@ -1,9 +1,9 @@
 const config = {
-    apiKey: "AIzaSyBPHNZiVe5FOEv3RjxujNTZqPUQ9w5W8F8",
-    authDomain: "mobilproje-d579b.firebaseapp.com",
-    databaseURL: "https://mobilproje-d579b.firebaseio.com",
-    projectId: "mobilproje-d579b",
-    storageBucket: "mobilproje-d579b.appspot.com",
-    messagingSenderId: "300813621139"
+    apiKey: "AIzaSyA3x65haGj9_a0LN-ujthRuxTSYxRtYnzE",
+    authDomain: "scitech-a8f1c.firebaseapp.com",
+    databaseURL: "https://scitech-a8f1c.firebaseio.com",
+    projectId: "scitech-a8f1c",
+    storageBucket: "scitech-a8f1c.appspot.com",
+    messagingSenderId: "1088829867500"
 }
 export default config //yeni düzenleme

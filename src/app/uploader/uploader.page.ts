@@ -75,7 +75,7 @@ export class UploaderPage implements OnInit {
     const data=new FormData()
     data.append('file',files[0])
     data.append('UPLOADCARE_STORE', '1')
-    data.append('UPLOADCARE_PUB_KEY','abb2c28900d5b6158eef')
+    data.append('UPLOADCARE_PUB_KEY','33203dfc97a0f5b0a657')
 
     this.http.post('https://upload.uploadcare.com/base/', data)
     .subscribe(event => {
