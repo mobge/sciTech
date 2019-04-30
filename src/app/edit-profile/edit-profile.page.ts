@@ -89,7 +89,7 @@ export class EditProfilePage implements OnInit {
         await this.user.reAuth(this.user.getUsername(), this.password)
       } catch (error) {
         this.busy = false
-        return this.presentAlert('Error!','Wrong Password!')
+        return this.presentAlert('Error!','Yanlış Şifre!')
       }
 
       if (this.newpassword) {
