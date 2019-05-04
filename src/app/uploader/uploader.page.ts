@@ -84,4 +84,8 @@ export class UploaderPage implements OnInit {
       this.busy=false;
     })
   }
+  goAhead()
+  {
+    this.router.navigate(['/tabs'])
+  }
 }

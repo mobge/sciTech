@@ -21,8 +21,7 @@ export class LoginPage implements OnInit {
 
 	async login() {
 		const { username, password } = this
-		try {
-			// kind of a hack. 
+		try { 
 			const res = await this.afAuth.auth.signInWithEmailAndPassword(username + '@gmail.com', password)
 			
 			if(res.user) {
@@ -30,7 +29,15 @@ export class LoginPage implements OnInit {
 					username,
 					uid: res.user.uid
 				})
-				this.router.navigate(['/tabs'])
+				if(username=="admin1")
+				{
+				 	this.router.navigate(['/uploader'])
+				}
+				else
+				{
+					this.router.navigate(['/tabs'])
+				}
+
 			}
 		
 		} catch(err) {
