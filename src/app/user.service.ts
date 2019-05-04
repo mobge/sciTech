@@ -11,11 +11,9 @@ interface user {
 @Injectable()
 export class UserService {
 	private user: user
-
 	constructor(private afAuth: AngularFireAuth) {
 
 	}
-
 	setUser(user: user) {
 		this.user = user
 	}
