@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule', canActivate: [AuthService]},
   { path: 'edit-profile', loadChildren: './edit-profile/edit-profile.module#EditProfilePageModule' },
-  { path: 'uploader', loadChildren: '../uploader/uploader.module#UploaderPageModule' },
+  { path: 'uploader', loadChildren: './uploader/uploader.module#UploaderPageModule' },
 ];
 
 

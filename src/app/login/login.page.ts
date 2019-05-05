@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth'
 import { auth } from 'firebase/app'
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginPage implements OnInit {
 	username: string = ""
 	password: string = ""
 
-	constructor(public afAuth: AngularFireAuth, public user: UserService, public router: Router) { }
+	constructor(public afAuth: AngularFireAuth, public user: UserService, public router: Router, public afstore: AngularFirestore) { }
 
 	ngOnInit() {
 	}

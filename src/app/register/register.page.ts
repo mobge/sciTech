@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth'
-import { auth } from 'firebase/app'
+import { auth, firestore } from 'firebase/app'
 
 import { AngularFirestore } from '@angular/fire/firestore'
 import { UserService } from '../user.service';
@@ -63,6 +63,11 @@ export class RegisterPage implements OnInit {
 		} catch(error) {
 			console.dir(error)
 		}
+		this.afstore.doc(`favorite/${this.user.getUID()}`).set({
+			posts: [],
+			username,
+		})
+		
 	}
 
 }

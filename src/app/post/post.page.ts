@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
 import { firestore } from 'firebase/app'
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-post',
@@ -19,10 +20,13 @@ export class PostPage implements OnInit {
 
 	heartType: string = "heart-empty"
 
+
 	constructor(
 		private route: ActivatedRoute, 
 		private afs: AngularFirestore,
-		private user: UserService) {
+		private user: UserService,
+		private router: Router,
+		public afstore: AngularFirestore) {
 
 	}
 
@@ -34,6 +38,7 @@ export class PostPage implements OnInit {
 			this.effect = val.effect
 			this.heartType = val.likes.includes(this.user.getUID()) ? 'heart' : 'heart-empty'
 		})
+				
 	}
 
 	ngOnDestroy() {
@@ -41,13 +46,20 @@ export class PostPage implements OnInit {
 	}
 
 	toggleHeart() {
+
 		if(this.heartType == 'heart-empty') {
 			this.postReference.update({
-				likes: firestore.FieldValue.arrayUnion(this.user.getUID())
+			likes: firestore.FieldValue.arrayUnion(this.user.getUID())
+			})
+			this.afstore.doc(`favorite/${this.user.getUID()}`).update({
+				posts: firestore.FieldValue.arrayUnion(this.postID)
 			})
 		} else {
 			this.postReference.update({
 				likes: firestore.FieldValue.arrayRemove(this.user.getUID())
+			})
+			this.afstore.doc(`favorite/${this.user.getUID()}`).update({
+				posts: firestore.FieldValue.arrayRemove(this.postID) 
 			})
 		}
 	}

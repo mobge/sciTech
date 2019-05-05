@@ -1,0 +1,16 @@
+#image {
+    display: flex;
+    flex-wrap:wrap;
+    margin:0 auto;
+    max-width: 100%;
+    width: 606px;
+}
+.image {
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+.main-image, .user-image{ 
+    width: 250px;
+    height: 250px;
+}
