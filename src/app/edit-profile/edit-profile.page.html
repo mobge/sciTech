@@ -7,7 +7,6 @@
 <ion-content padding>
 
   <app-loading *ngIf="busy"></app-loading>
-
   <div *ngIf="!busy">
 
     <input type="file" #fileBtn class="filebtn" (change)="uploadPic($event)"/>
@@ -37,5 +36,6 @@
     </div>
 
   </div>
+  
 
 </ion-content>
