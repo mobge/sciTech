@@ -1,0 +1,23 @@
+ion-toolbar {
+    --background: black
+}
+
+.title {
+    color:white;
+    text-align: center;
+}
+
+ion-content {
+    --background: radial-gradient( rgb(21, 45, 153) 0%,rgb(36, 39, 73)  45%,rgb(9, 9, 14) 100%) !important;
+    
+}
+ion-item {
+    box-shadow: none;
+    --background:none;
+}
+ion-icon {
+    color:White;
+}
+ion-input {
+    color:White;
+}

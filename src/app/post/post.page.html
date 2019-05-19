@@ -9,9 +9,12 @@
     <app-loading *ngIf="!post"></app-loading>
   
     <ion-card *ngIf="post as postData">
+      <ion-card-content class="title">
+          <p style="font-weight: bold; font-size:25px; color:black">{{ postData.title }}</p>
+        </ion-card-content>
       <ion-img src="https://ucarecdn.com/{{ postID }}/-/preview/{{ effect }}"></ion-img>
-      <ion-card-content>
-        <p>{{ postData.desc }}</p>
+      <ion-card-content class="title">
+        <p style="font-size:15px; color:black">{{ postData.desc }}</p>
       </ion-card-content>
       <ion-item (click)="toggleHeart()">
         <ion-icon [name]="heartType"></ion-icon>

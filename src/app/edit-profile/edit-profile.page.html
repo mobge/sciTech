@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Profil Düzenleme</ion-title>
+    <ion-title class="title">Profil Düzenleme</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -17,18 +17,18 @@
 
     <div class="profile-info">
       <ion-item>
-        <ion-label position="floating">Username</ion-label>
-        <ion-input [(ngModel)]="username"></ion-input>
+        <ion-icon name="person"></ion-icon>
+        <ion-input [(ngModel)]="username" placeholder="Username"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label position="floating">Yeni Şifreniz</ion-label>
-        <ion-input [(ngModel)]="newpassword"></ion-input>
+        <ion-icon name="lock"></ion-icon>
+        <ion-input [(ngModel)]="newpassword" placeholder="Yeni Şifrenizi Giriniz"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label position="floating">Eski Şifrenizi Giriniz</ion-label>
-        <ion-input [(ngModel)]="password"></ion-input>
+        <ion-icon name="lock"></ion-icon>
+        <ion-input [(ngModel)]="password" placeholder="Eski Şifrenizi Giriniz"></ion-input>
       </ion-item>
 
       <ion-button fill="solid" expand="block" color="dark" (click)="updateDetails()">Kaydet</ion-button>

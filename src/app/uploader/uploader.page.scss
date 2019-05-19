@@ -19,3 +19,17 @@
     justify-content: center;
     align-items: center;
 }
+
+ion-toolbar {
+    --background: black
+}
+
+.title {
+    color:white;
+    text-align: center;
+}
+
+ion-content {
+    --background: white;
+    
+}

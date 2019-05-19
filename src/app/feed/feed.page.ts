@@ -19,7 +19,7 @@ export class FeedPage implements OnInit {
  constructor(private afs: AngularFirestore, private user: UserService, private router: Router, private route: ActivatedRoute) {
      this.mainuser= afs.doc(`users/q5Hvs00OV0fUL3izFvRKhk6gR3D2`)
      this.sub= this.mainuser.valueChanges().subscribe(event =>{
-       this.posts=event.posts
+       this.posts=event.posts.reverse()
      })
   }
 
@@ -30,9 +30,16 @@ export class FeedPage implements OnInit {
   goTo(postID: string) {
     this.router.navigate(['/tabs/post/'+ postID])
   }
+  async reverse(posts)
+  {
+    for(let i=posts.length;i=0;i--)
+    {
+      this.posts=posts;
+    }
+  }
 
  ngOnInit() {
-   
+  
  }
 }
 

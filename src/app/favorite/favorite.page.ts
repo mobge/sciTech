@@ -19,7 +19,7 @@ export class FavoritePage implements OnInit {
  constructor(private afs: AngularFirestore, private user: UserService, private router: Router, private route: ActivatedRoute) {
      this.mainuser=afs.doc(`favorite/${this.user.getUID()}`)
      this.sub= this.mainuser.valueChanges().subscribe(event =>{
-       this.posts=event.posts
+       this.posts=event.posts.reverse()
        
      })
   }
@@ -30,6 +30,13 @@ export class FavoritePage implements OnInit {
 
   goTo(postID: string) {
     this.router.navigate(['/tabs/post/'+ postID])
+  }
+  async reverse(posts)
+  {
+    for(let i=posts.length;i=0;i--)
+    {
+      this.posts=posts;
+    }
   }
 
  ngOnInit() {

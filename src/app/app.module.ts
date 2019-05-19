@@ -16,6 +16,7 @@ import { UserService } from './user.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
 import { ShareModule } from './share.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +29,9 @@ import { ShareModule } from './share.module';
 	  AngularFireAuthModule,
 	  AngularFirestoreModule,
 	  HttpModule,
-	  ShareModule
+		ShareModule,
+		FormsModule,
+    ReactiveFormsModule
 	],
   providers: [
     StatusBar,

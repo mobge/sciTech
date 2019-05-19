@@ -21,6 +21,7 @@ export class PostPage implements OnInit {
 	heartType: string = "heart-empty"
 
 
+
 	constructor(
 		private route: ActivatedRoute, 
 		private afs: AngularFirestore,

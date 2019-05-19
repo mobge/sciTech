@@ -14,3 +14,16 @@
     width: 250px;
     height: 250px;
 }
+ion-toolbar {
+    --background: black
+}
+
+.title {
+    color:white;
+    text-align: center;
+}
+
+ion-content {
+    --background: white;
+    
+}
