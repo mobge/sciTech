@@ -65,7 +65,7 @@ export class UploaderPage implements OnInit {
 
     await alert.present()
 
-    this.router.navigate(['tabs/feed'])
+    this.router.navigate(['admintabs/feed'])
 
   }
 

@@ -14,15 +14,13 @@
     <input type="file" *ngIf="!imageURL" (change)="fileChanged($event)" class="filebtn" #fileButton/>
 
     <ion-button shape="round" color="primary" (click)="uploadFile()" *ngIf="!imageURL">Dosya Yükle</ion-button>
-    <ion-button shape="round" color="primary" (click)="goAhead()" *ngIf="!imageURL"  fill="outline">Devam Et</ion-button>
 
-   
     <ion-card *ngIf="imageURL">
       <ion-input placeholder="Gönderi Başlığı" [(ngModel)]="title"></ion-input>
       <img src="https://ucarecdn.com/{{ imageURL }}/" />
       <ion-card-content>
         <ion-textarea placeholder="Gönderi Yazınız" [(ngModel)]="desc"></ion-textarea>
-        <ion-button shape="round" color="primary" (click)="createPost()">Gönder</ion-button>
+        <ion-button fill="solid" expand="block" color="dark" (click)="createPost()">Gönder</ion-button>
       </ion-card-content>
     </ion-card>
   </div>

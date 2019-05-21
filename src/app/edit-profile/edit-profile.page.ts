@@ -109,7 +109,15 @@ export class EditProfilePage implements OnInit {
 
       await this.presentAlert('Başarılı!', 'Profilinizi Güncellediniz!')
 
-      this.router.navigate(['/tabs/feed'])
+      if(this.username=="admin")
+      {
+        this.router.navigate(['/admintabs/feed'])
+      }
+      else
+      {
+        this.router.navigate(['/tabs/feed'])
+
+      }
 
 
     }

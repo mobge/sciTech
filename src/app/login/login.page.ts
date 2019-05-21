@@ -30,9 +30,9 @@ export class LoginPage implements OnInit {
 					username,
 					uid: res.user.uid
 				})
-				if(username=="admin1")
+				if(username=="admin")
 				{
-				 	this.router.navigate(['/uploader'])
+				 	this.router.navigate(['/admintabs'])
 				}
 				else
 				{

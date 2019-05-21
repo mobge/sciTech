@@ -17,7 +17,7 @@ export class FeedPage implements OnInit {
  postReference: AngularFirestoreDocument
 
  constructor(private afs: AngularFirestore, private user: UserService, private router: Router, private route: ActivatedRoute) {
-     this.mainuser= afs.doc(`users/q5Hvs00OV0fUL3izFvRKhk6gR3D2`)
+     this.mainuser= afs.doc(`users/dNKjPK5B7VeYTD4AmMgVOWygdwi1`)
      this.sub= this.mainuser.valueChanges().subscribe(event =>{
        this.posts=event.posts.reverse()
      })
@@ -28,7 +28,12 @@ export class FeedPage implements OnInit {
   }
 
   goTo(postID: string) {
-    this.router.navigate(['/tabs/post/'+ postID])
+    if (this.user.getUsername()=="admin") {
+      this.router.navigate(['/admintabs/post/'+ postID])
+    }
+    else {
+      this.router.navigate(['/tabs/post/'+ postID])
+    } 
   }
   async reverse(posts)
   {

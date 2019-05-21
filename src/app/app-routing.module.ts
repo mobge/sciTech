@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule', canActivate: [AuthService]},
   { path: 'edit-profile', loadChildren: './edit-profile/edit-profile.module#EditProfilePageModule' },
   { path: 'uploader', loadChildren: './uploader/uploader.module#UploaderPageModule' },
+  { path: 'admintabs', loadChildren: './admintabs/admintabs.module#AdmintabsPageModule', canActivate: [AuthService]},
 ];
 
 
