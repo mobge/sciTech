@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore'
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore'
 import { UserService } from '../user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { firestore } from 'firebase';
+import { Observable, observable } from 'rxjs';
+
 
 @Component({
  selector: 'app-feed',
@@ -11,18 +13,19 @@ import { firestore } from 'firebase';
 })
 export class FeedPage implements OnInit {
 
- mainuser: AngularFirestoreDocument
+ mainuser
  sub
  posts
- postReference: AngularFirestoreDocument
+ title
 
  constructor(private afs: AngularFirestore, private user: UserService, private router: Router, private route: ActivatedRoute) {
      this.mainuser= afs.doc(`users/dNKjPK5B7VeYTD4AmMgVOWygdwi1`)
      this.sub= this.mainuser.valueChanges().subscribe(event =>{
-       this.posts=event.posts.reverse()
+     this.posts=event.posts.reverse()
+     this.title=event.title
      })
   }
-
+  
   ngOnDestory(){
      this.sub.unscribe()
   }
@@ -44,7 +47,5 @@ export class FeedPage implements OnInit {
   }
 
  ngOnInit() {
-  
- }
 }
-
+}

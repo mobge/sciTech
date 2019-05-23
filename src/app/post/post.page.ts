@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
 import { firestore } from 'firebase/app'
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { post } from 'selenium-webdriver/http';
 
 @Component({
 	selector: 'app-post',
@@ -17,18 +19,20 @@ export class PostPage implements OnInit {
 	post
 	postReference: AngularFirestoreDocument
 	sub
-
 	heartType: string = "heart-empty"
+	
 
-
-
+	mainuser
+	posts
+	title
+	postss=[]
 	constructor(
 		private route: ActivatedRoute, 
 		private afs: AngularFirestore,
 		private user: UserService,
 		private router: Router,
 		public afstore: AngularFirestore) {
-
+		
 	}
 
 	ngOnInit() {
@@ -39,9 +43,16 @@ export class PostPage implements OnInit {
 			this.effect = val.effect
 			this.heartType = val.likes.includes(this.user.getUID()) ? 'heart' : 'heart-empty'
 		})
+		
+		this.mainuser= this.afs.doc(`users/dNKjPK5B7VeYTD4AmMgVOWygdwi1`)
+		this.sub= this.mainuser.valueChanges().subscribe(event =>{
+			this.posts=event.posts.reverse()
+			this.title=event.title
+			this.postss=this.posts
+		})
+		
 				
 	}
-
 	ngOnDestroy() {
 		this.sub.unsubscribe()
 	}

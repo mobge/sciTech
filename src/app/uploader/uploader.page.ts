@@ -38,7 +38,8 @@ export class UploaderPage implements OnInit {
     const title=this.title
 
     this.afstore.doc(`users/${this.user.getUID()}`).update({
-      posts: firestore.FieldValue.arrayUnion(image) 
+      posts: firestore.FieldValue.arrayUnion(image),
+      title:firestore.FieldValue.arrayUnion(this.title)
     })
 
     this.afstore.doc(`posts/${image}`).set({

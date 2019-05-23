@@ -5,12 +5,9 @@
 </ion-header>
 
 
-<ion-content padding> 
+<ion-content padding>
     <ion-card *ngFor="let post of posts">
-        <ion-card-content>
-            <p>{{ posts.title }}</p>
-          </ion-card-content>
-      <ion-img (click)="goTo(post)" class="main-image" src="https://ucarecdn.com/{{ post }}/-/scale_crop/200x200/center/"></ion-img>
+      <ion-img (click)="goTo(post)" class="main-image" src="https://ucarecdn.com/{{ post }}/-/preview/center"></ion-img>
     </ion-card>
   </ion-content>
   
