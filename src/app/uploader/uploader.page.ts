@@ -15,6 +15,7 @@ export class UploaderPage implements OnInit {
   imageURL: string;
   desc: string
   title: string
+  comment: string
 
   busy: boolean = false;
 
@@ -36,6 +37,7 @@ export class UploaderPage implements OnInit {
     const image=this.imageURL
     const desc=this.desc
     const title=this.title
+    const comment=this.comment
 
     this.afstore.doc(`users/${this.user.getUID()}`).update({
       posts: firestore.FieldValue.arrayUnion(image),
@@ -45,6 +47,7 @@ export class UploaderPage implements OnInit {
     this.afstore.doc(`posts/${image}`).set({
       desc,
       title,
+      comment: [],
       author: this.user.getUsername(),
       likes: []
     })
