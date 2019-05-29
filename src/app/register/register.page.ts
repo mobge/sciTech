@@ -38,6 +38,15 @@ export class RegisterPage implements OnInit {
 
 		await alert.present()
 	}
+	async sameUser()
+	{
+	const alert= await this.alertController.create({
+		header: 'Başarısız',
+		message: 'Kullanıcı adı mevcut.',
+		buttons: ['OK']
+	});
+	await alert.present();
+	}
 
 	async register() {
 		const { username, password, cpassword } = this
@@ -62,6 +71,7 @@ export class RegisterPage implements OnInit {
 
 		} catch(error) {
 			console.dir(error)
+			this.sameUser()
 		}
 		this.afstore.doc(`favorite/${this.user.getUID()}`).set({
 			posts: [],

@@ -42,10 +42,6 @@ export class EditProfilePage implements OnInit {
     ngOnInit() {
     }
 
-    /*ngOnDestroy(){
-      this.sub.unscribe()
-    }*/
-
     updateProfilePic() {
       this.fileBtn.nativeElement.click()
     }

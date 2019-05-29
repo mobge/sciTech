@@ -4,6 +4,7 @@ import { auth } from 'firebase/app'
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -15,9 +16,32 @@ export class LoginPage implements OnInit {
 	username: string = ""
 	password: string = ""
 
-	constructor(public afAuth: AngularFireAuth, public user: UserService, public router: Router, public afstore: AngularFirestore) { }
+	constructor(
+		public afAuth: AngularFireAuth, 
+		public user: UserService, 
+		public router: Router, 
+		public afstore: AngularFirestore,
+		private alertController: AlertController) { }
 
 	ngOnInit() {
+	}
+	async userNotFound()
+ 	{
+	const alert= await this.alertController.create({
+		header: 'Uyarı',
+		message: 'Kullanıcı Bulunamadı.',
+		buttons: ['OK']
+	});
+	await alert.present();
+	}
+	async wrongPassword()
+	{
+	const alert= await this.alertController.create({
+		header: 'Uyarı',
+		message: 'Hatalı Şifre.',
+		buttons: ['OK']
+	});
+	await alert.present();
 	}
 
 	async login() {
@@ -43,8 +67,13 @@ export class LoginPage implements OnInit {
 		
 		} catch(err) {
 			console.dir(err)
-			if(err.code === "auth/user-not-found") {
-				console.log("Kullanıcı Bulunamadı")
+      		if(err.code==="auth/user-not-found") {
+        	console.log("Kullanıcı bulunamadı.")
+        	this.userNotFound();
+			}
+			if(err.code==="auth/wrong-password")
+			{
+			  this.wrongPassword();
 			}
 		}
 	}

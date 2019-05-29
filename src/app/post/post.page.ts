@@ -49,11 +49,6 @@ export class PostPage implements OnInit {
 		this.sub = this.postReference.valueChanges().subscribe(event => {
 			this.comment=event.comment
 		})
-		this.mainuser= this.afs.doc(`users/dNKjPK5B7VeYTD4AmMgVOWygdwi1`)
-		this.sub= this.mainuser.valueChanges().subscribe(event =>{
-		this.posts=event.posts.reverse()
-		this.title=event.title
-		})
 	}
 	ngOnDestroy() {
 		this.sub.unsubscribe()

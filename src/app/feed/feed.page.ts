@@ -4,6 +4,7 @@ import { UserService } from '../user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { firestore } from 'firebase';
 import { Observable, observable } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class FeedPage implements OnInit {
  sub
  posts
  title
+ postss
 
  constructor(private afs: AngularFirestore, private user: UserService, private router: Router, private route: ActivatedRoute) {
      this.mainuser= afs.doc(`users/dNKjPK5B7VeYTD4AmMgVOWygdwi1`)
@@ -24,6 +26,7 @@ export class FeedPage implements OnInit {
      this.posts=event.posts.reverse()
      this.title=event.title
      })
+      
   }
   
   ngOnDestory(){
