@@ -30,7 +30,7 @@ export class FavoritePage implements OnInit {
 
   goTo(postID: string) {
     if (this.user.getUsername()=="admin") {
-      this.router.navigate(['/admintabs/post/'+ postID])
+      this.router.navigate(['/admintabs/adminpost/'+ postID])
     }
     else {
       this.router.navigate(['/tabs/post/'+ postID])

@@ -6,15 +6,14 @@ import { firestore } from 'firebase/app'
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
-
 @Component({
-	selector: 'app-post',
-	templateUrl: './post.page.html',
-	styleUrls: ['./post.page.scss'],
+  selector: 'app-adminpost',
+  templateUrl: './adminpost.page.html',
+  styleUrls: ['./adminpost.page.scss'],
 })
-export class PostPage implements OnInit {
+export class AdminpostPage implements OnInit {
 
-	postID: string
+  postID: string
 	effect: string = ''
 	post
 	postReference: AngularFirestoreDocument
@@ -82,5 +81,24 @@ export class PostPage implements OnInit {
 			comment: firestore.FieldValue.arrayUnion(this.user.getUsername()+": "+this.writeComment)
 	})
 	this.writeComment=[]
+	}
+	async deletePost()
+	{
+		this.afs.doc(`posts/${this.postID}`).delete()
+		this.mainuser.update({
+			posts: firestore.FieldValue.arrayRemove(this.postID) 
+		})
+		this.mainuser.update({
+			title: firestore.FieldValue.arrayRemove(this.title) 
+		})
+		const alert= await this.alertController.create({
+			header: 'Bitti',
+			message: 'Gönderiniz başarıyla silindi!',
+			buttons: ['OK!']
+		  })
+		  await alert.present()
+
+		  this.router.navigate(['admintabs/feed'])
+		
 	}
 }

@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'edit-profile', loadChildren: './edit-profile/edit-profile.module#EditProfilePageModule' },
   { path: 'uploader', loadChildren: './uploader/uploader.module#UploaderPageModule' },
   { path: 'admintabs', loadChildren: './admintabs/admintabs.module#AdmintabsPageModule', canActivate: [AuthService]},
+  { path: 'adminpost', loadChildren: './adminpost/adminpost.module#AdminpostPageModule' },
 ];
 
 

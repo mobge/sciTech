@@ -32,11 +32,11 @@ export class LoginPage implements OnInit {
 				})
 				if(username=="admin")
 				{
-				 	this.router.navigate(['/admintabs'])
+				 	this.router.navigate(['/admintabs/feed'])
 				}
 				else
 				{
-					this.router.navigate(['/tabs'])
+					this.router.navigate(['/tabs/feed'])
 				}
 
 			}

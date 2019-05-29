@@ -42,9 +42,9 @@ export class EditProfilePage implements OnInit {
     ngOnInit() {
     }
 
-    ngOnDestroy(){
+    /*ngOnDestroy(){
       this.sub.unscribe()
-    }
+    }*/
 
     updateProfilePic() {
       this.fileBtn.nativeElement.click()
@@ -120,6 +120,10 @@ export class EditProfilePage implements OnInit {
       }
 
 
+    }
+    logout()
+    {
+      this.router.navigate(['/login'])
     }
 
 }
