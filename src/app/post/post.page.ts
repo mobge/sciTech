@@ -72,10 +72,24 @@ export class PostPage implements OnInit {
 			})
 		}
 	}
-	createComment() {
-		this.postReference.update({
+	async createComment() {
+		if(this.writeComment==null)
+		{
+			const alert= await this.alertController.create({
+				header: 'Uyarı',
+				message: 'Lütfen bir mesaj yazınız!',
+				buttons: ['OK!']
+			  })
+			  await alert.present()
+		}
+		else
+		{
+			this.postReference.update({
 			comment: firestore.FieldValue.arrayUnion(this.user.getUsername()+": "+this.writeComment)
-	})
-	this.writeComment=[]
+		})
+			this.writeComment=null
+		}
+		
+	
 	}
 }

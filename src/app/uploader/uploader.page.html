@@ -16,10 +16,10 @@
     <ion-button shape="round" color="primary" (click)="uploadFile()" *ngIf="!imageURL">Dosya Yükle</ion-button>
 
     <ion-card *ngIf="imageURL">
-      <ion-input placeholder="Gönderi Başlığı" [(ngModel)]="title"></ion-input>
+      <ion-input style="font-weight: bold; font-size:15px; color:black" placeholder="Gönderi Başlığı" [(ngModel)]="title"></ion-input>
       <img src="https://ucarecdn.com/{{ imageURL }}/" />
       <ion-card-content>
-        <ion-textarea placeholder="Gönderi Yazınız" [(ngModel)]="desc"></ion-textarea>
+        <ion-textarea style="color:black" placeholder="Gönderi Yazınız" [(ngModel)]="desc"></ion-textarea>
         <ion-button fill="solid" expand="block" color="dark" (click)="createPost()">Gönder</ion-button>
       </ion-card-content>
     </ion-card>
