@@ -14,13 +14,13 @@
         </ion-card-content>
       <ion-img src="https://ucarecdn.com/{{ postID }}/-/preview/{{ effect }}"></ion-img>
       <ion-card-content class="title">
-        <p style="font-size:15px; color:black">{{ postData.desc }}</p>
+        <p style="font-size:15px; color:black; line-height: 200%;">{{ postData.desc }}</p>
       </ion-card-content>
       <ion-item (click)="toggleHeart()">
         <ion-icon [name]="heartType" color="red"></ion-icon>
       </ion-item>
       <ion-input style="color:black" placeholder="Yorum Yazınız" [(ngModel)]="writeComment"></ion-input>
       <ion-button fill="solid" expand="block" color="dark" (click)="createComment()">Yorum Gönder</ion-button>
-      <ion-item class="comment"*ngFor="let comment of comment">{{comment}}</ion-item>
+     <ion-item class="comment"*ngFor="let comment of comment">{{comment}}</ion-item>
     </ion-card>
   </ion-content>

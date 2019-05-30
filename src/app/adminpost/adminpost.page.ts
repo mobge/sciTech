@@ -13,7 +13,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class AdminpostPage implements OnInit {
 
-  postID: string
+  	postID: string
 	effect: string = ''
 	post
 	postReference: AngularFirestoreDocument
@@ -44,14 +44,15 @@ export class AdminpostPage implements OnInit {
 			this.effect = val.effect
 			this.heartType = val.likes.includes(this.user.getUID()) ? 'heart' : 'heart-empty'
 			this.title=val.title
+			this.comment=val.comment
 		})
 		this.sub = this.postReference.valueChanges().subscribe(event => {
 			this.comment=event.comment
 		})
 		this.mainuser= this.afs.doc(`users/dNKjPK5B7VeYTD4AmMgVOWygdwi1`)
 		this.sub= this.mainuser.valueChanges().subscribe(event =>{
-		this.posts=event.posts.reverse()
-		this.title=event.title
+			this.posts=event.posts.reverse()
+			this.title=event.title
 		})
 	}
 	ngOnDestroy() {
@@ -101,4 +102,5 @@ export class AdminpostPage implements OnInit {
 		  this.router.navigate(['admintabs/feed'])
 		
 	}
+
 }
