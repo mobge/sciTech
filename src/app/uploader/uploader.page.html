@@ -4,7 +4,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding style="width:auto; height:auto;">
+    <ion-icon name="refresh" (click)="ref()" style="width:20px; height:20px; position:absolute; right:5px;"></ion-icon>
 
   <app-loading *ngIf="busy"></app-loading>
 
@@ -16,7 +17,9 @@
     <ion-button shape="round" color="primary" (click)="uploadFile()" *ngIf="!imageURL">Dosya Yükle</ion-button>
 
     <ion-card *ngIf="imageURL">
-      <ion-input style="font-weight: bold; font-size:15px; color:black" placeholder="Gönderi Başlığı" [(ngModel)]="title"></ion-input>
+      <ion-card-content>
+        <ion-input style="font-weight: bold; font-size:15px; color:black" placeholder="Gönderi Başlığı" [(ngModel)]="title"></ion-input>
+      </ion-card-content> 
       <img src="https://ucarecdn.com/{{ imageURL }}/" />
       <ion-card-content>
         <ion-textarea style="color:black" placeholder="Gönderi Yazınız" [(ngModel)]="desc"></ion-textarea>

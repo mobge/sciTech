@@ -98,4 +98,8 @@ export class UploaderPage implements OnInit {
   {
     this.router.navigate(['/tabs'])
   }
+  ref()
+  {
+    location.reload();
+  }
 }
