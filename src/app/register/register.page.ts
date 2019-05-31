@@ -53,7 +53,6 @@ export class RegisterPage implements OnInit {
 		if(password !== cpassword) {
 			return console.error("Şifreler Eşleşmiyor!")
 		}
-
 		try {
 			const res = await this.afAuth.auth.createUserWithEmailAndPassword(username + '@gmail.com', password)
 
