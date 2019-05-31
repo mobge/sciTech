@@ -15,13 +15,16 @@ export class LoginPage implements OnInit {
 
 	username: string = ""
 	password: string = ""
+	mainuser
 
 	constructor(
 		public afAuth: AngularFireAuth, 
 		public user: UserService, 
 		public router: Router, 
 		public afstore: AngularFirestore,
-		private alertController: AlertController) { }
+		private alertController: AlertController) {
+		this.mainuser= afstore.doc(`users/dNKjPK5B7VeYTD4AmMgVOWygdwi1`)
+		 }
 
 	ngOnInit() {
 	}
@@ -54,9 +57,9 @@ export class LoginPage implements OnInit {
 					username,
 					uid: res.user.uid
 				})
-				if(username=="admin")
+				if(this.user.getUID()=="dNKjPK5B7VeYTD4AmMgVOWygdwi1")
 				{
-				 	this.router.navigate(['/admintabs/feed'])
+					 this.router.navigate(['/admintabs/feed'])
 				}
 				else
 				{

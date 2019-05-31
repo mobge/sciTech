@@ -47,11 +47,22 @@ export class RegisterPage implements OnInit {
 	});
 	await alert.present();
 	}
+	async matchPassword()
+	{
+	const alert= await this.alertController.create({
+		header: 'Başarısız',
+		message: 'Şifreniz eşleşmiyor.',
+		buttons: ['OK']
+		});
+		await alert.present();	
+	}
 
 	async register() {
 		const { username, password, cpassword } = this
 		if(password !== cpassword) {
+			this.matchPassword()
 			return console.error("Şifreler Eşleşmiyor!")
+			
 		}
 
 		try {
@@ -71,7 +82,7 @@ export class RegisterPage implements OnInit {
 
 		} catch(error) {
 			console.dir(error)
-			this.sameUser()
+			this.matchPassword()
 		}
 		this.afstore.doc(`favorite/${this.user.getUID()}`).set({
 			posts: [],

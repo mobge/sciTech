@@ -29,7 +29,7 @@ export class FavoritePage implements OnInit {
   }
 
   goTo(postID: string) {
-    if (this.user.getUsername()=="admin") {
+    if (this.user.getUID()=="dNKjPK5B7VeYTD4AmMgVOWygdwi1") {
       this.router.navigate(['/admintabs/adminpost/'+ postID])
     }
     else {
